@@ -32,9 +32,9 @@ export function Loader() {
       <div className="relative mb-8">
         <div className="absolute inset-0 rounded-full bg-accent-400/30 blur-xl animate-pulse-soft" />
         <img
-          src={branding.logoLight}
+          src={branding.logo}
           alt={branding.schoolName}
-          className="relative w-28 h-28 rounded-full animate-bounce-slow"
+          className="relative w-32 h-32 object-contain animate-bounce-slow"
         />
       </div>
 
