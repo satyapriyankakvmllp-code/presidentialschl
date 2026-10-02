@@ -80,12 +80,12 @@ if (!response.ok || !data.success) {
 }
       // Prepare WhatsApp message
       const lines = [
-  '*🏫 NEW ADMISSION ENQUIRY*',
+  '* NEW ADMISSION ENQUIRY*',
   '',
-  '*👤 Parent / Guardian Name:* ' + form.name,
-  '*📞 Phone Number:* ' + form.phone,
-  '*📧 Email Address:* ' + form.email,
-  '*🎓 Grade Applying For:* ' + form.grade,
+  '* Parent / Guardian Name:* ' + form.name,
+  '* Phone Number:* ' + form.phone,
+  '* Email Address:* ' + form.email,
+  '* Grade Applying For:* ' + form.grade,
 ];
 
 if (form.message) {
@@ -97,11 +97,18 @@ if (form.message) {
       }
 
       // Open WhatsApp
-      window.open(
-        whatsappLink(lines.join('\n')),
-        '_blank',
-        'noopener,noreferrer'
-      );
+      // window.open(
+      //   whatsappLink(lines.join('\n')),
+      //   '_blank',
+      //   'noopener,noreferrer'
+      // );
+      const whatsappUrl = whatsappLink(lines.join('\n'));
+
+if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  window.location.href = whatsappUrl;
+} else {
+  window.open(whatsappUrl, '_blank');
+}
 
       // Show success message
       setSubmitted(true);
