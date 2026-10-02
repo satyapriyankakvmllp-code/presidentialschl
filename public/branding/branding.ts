@@ -56,6 +56,7 @@ export const branding: Branding = {
   metaDescription:
     'The Presidential School is a premier institution blending academic excellence with character building. Admissions open for 2027–2028.',
   logo: '/branding/assets/logo.png',
+  logoLight: '/branding/assets/logo-light.png',
   favicon: '/branding/assets/favicon.png',
   primaryColor: '#0c2249',
   accentColor: '#c9a227',

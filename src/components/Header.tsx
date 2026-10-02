@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, GraduationCap, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, GraduationCap } from 'lucide-react';
 import { branding } from '../../public/branding/branding';
 import { SocialIcons } from './SocialIcons';
 import { scrollToSection } from './scrollToSection';
@@ -166,13 +166,6 @@ export function Header() {
               className="w-full bg-accent-500 hover:bg-accent-600 text-primary-950 font-semibold py-3.5 rounded-full transition-colors flex items-center justify-center gap-2">
               <GraduationCap size={18} /> Apply for Admission
             </button>
-            <a href={branding.contact.whatsappHref} target="_blank" rel="noopener noreferrer"
-              className="w-full bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold py-3 rounded-full transition-colors flex items-center justify-center gap-2">
-              <MessageCircle size={18} /> Enquire Now
-            </a>
-            <a href={branding.contact.phoneHref} className="flex items-center justify-center gap-2 text-sm text-primary-700">
-              <Phone size={15} className="text-accent-500" /> {branding.contact.phone}
-            </a>
           </div>
         </div>
       </div>

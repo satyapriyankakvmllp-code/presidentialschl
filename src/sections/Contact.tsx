@@ -19,7 +19,7 @@ import { SectionBackdrop } from '@/components/SectionBackdrop';
 import { images } from '@/config/images';
 
 // Backend URL: set VITE_API_URL at build time (see .env.example). Dev falls back to localhost.
-const API_BASE = ((import.meta.env.VITE_API_URL as string | undefined) ?? (import.meta.env.DEV ? 'http://localhost:5000' : '')).replace(/\/$/, '');
+
 import {
   branding,
   whatsappLink,
@@ -46,31 +46,40 @@ export function Contact() {
 
     try {
       // Send enquiry to backend
-      const response = await fetch(
-        `${API_BASE}/api/enquiry`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            grade: form.grade,
-            message: form.message,
-          }),
-        }
-      );
+      const formData = new FormData();
 
-      const data = await response.json();
+formData.append(
+  'access_key',
+  import.meta.env.VITE_WEB3FORMS_KEY
+);
 
-      if (!response.ok || !data.success) {
-        throw new Error(
-          data.message || 'Failed to send enquiry.'
-        );
-      }
 
+
+formData.append('subject', "Presidential School Admission Enquiry");
+formData.append('name', form.name);
+formData.append('email', form.email);
+formData.append('phone', form.phone);
+formData.append('grade', form.grade);
+formData.append('message', form.message);
+formData.append(
+  'redirect',
+  'https://presdentialschool.netlify.app/'
+);
+const response = await fetch(
+  'https://api.web3forms.com/submit',
+  {
+    method: 'POST',
+    body: formData,
+  }
+);
+
+const data = await response.json();
+
+if (!response.ok || !data.success) {
+  throw new Error(
+    data.message || 'Failed to send enquiry.'
+  );
+}
       // Prepare WhatsApp message
       const lines = [
         '*Admission Enquiry*',
