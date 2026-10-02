@@ -80,12 +80,12 @@ if (!response.ok || !data.success) {
 }
       // Prepare WhatsApp message
       const lines = [
-  '* NEW ADMISSION ENQUIRY*',
+  '*NEW ADMISSION ENQUIRY*',
   '',
-  '* Parent / Guardian Name:* ' + form.name,
-  '* Phone Number:* ' + form.phone,
-  '* Email Address:* ' + form.email,
-  '* Grade Applying For:* ' + form.grade,
+  '*Parent / Guardian Name:* ' + form.name,
+  '*Phone Number:* ' + form.phone,
+  '*Email Address:* ' + form.email,
+  '*Grade Applying For:* ' + form.grade,
 ];
 
 
@@ -431,7 +431,7 @@ if (!response.ok || !data.success) {
 
     
 <style>
-  {'.input { width: 100%; padding: 0.75rem 1rem; border-radius: 0.75rem; border: 1px solid #b9cdeb; background: #eef3fb; font-size: 0.875rem; color: #0c2249; transition: all 0.2s; } .input:focus { outline: none; border-color: #c9a227; background: white; box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.2); } .input::placeholder { color: #8aa9d9; }'}
+  {'.input { width: 100%; padding: 0.75rem 1rem; border-radius: 0.75rem; border: 1px solid #b9cdeb; background: #eef3fb; font-size: 0.875rem; color: #0c2249; transition: all 0.2s; } .input:focus { outline: none; border-color: #c9a227; background: white; box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.2); } .input::placeholder { color: #8aa9d9; } @media (max-width: 639px) { .input { min-height: 48px; padding: 0.875rem 1rem; } select.input, select.input option { font-family: Poppins, system-ui, sans-serif; font-size: 0.875rem; font-style: normal; } }'}
 </style>
 
     </section>
@@ -449,7 +449,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="block text-sm font-medium text-primary-800 mb-1.5">
+      <span className="block text-xs sm:text-sm font-medium text-primary-800 mb-2 sm:mb-1.5">
         {label}{' '}
         {required && (
           <span className="text-accent-500">
