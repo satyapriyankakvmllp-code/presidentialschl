@@ -61,10 +61,8 @@ formData.append('email', form.email);
 formData.append('phone', form.phone);
 formData.append('grade', form.grade);
 formData.append('message', form.message);
-formData.append(
-  'redirect',
-  'https://presdentialschool.netlify.app/'
-);
+
+
 const response = await fetch(
   'https://api.web3forms.com/submit',
   {
