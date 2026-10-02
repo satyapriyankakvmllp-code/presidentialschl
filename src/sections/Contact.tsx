@@ -88,9 +88,6 @@ if (!response.ok || !data.success) {
   '* Grade Applying For:* ' + form.grade,
 ];
 
-if (form.message) {
-  lines.push('*💬 Message:* ' + form.message);
-}
 
       if (form.message) {
         lines.push('Message: ' + form.message);
@@ -102,13 +99,11 @@ if (form.message) {
       //   '_blank',
       //   'noopener,noreferrer'
       // );
-      const whatsappUrl = whatsappLink(lines.join('\n'));
+       const whatsappUrl = whatsappLink(lines.join('\n'));
 
-if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-  window.location.href = whatsappUrl;
-} else {
-  window.open(whatsappUrl, '_blank');
-}
+      console.log('WhatsApp URL:', whatsappUrl);
+
+      window.location.assign(whatsappUrl);
 
       // Show success message
       setSubmitted(true);
