@@ -82,13 +82,17 @@ if (!response.ok || !data.success) {
 }
       // Prepare WhatsApp message
       const lines = [
-        '*Admission Enquiry*',
-        '',
-        'Name: ' + form.name,
-        'Phone: ' + form.phone,
-        'Email: ' + form.email,
-        'Grade: ' + form.grade,
-      ];
+  '*🏫 NEW ADMISSION ENQUIRY*',
+  '',
+  '*👤 Parent / Guardian Name:* ' + form.name,
+  '*📞 Phone Number:* ' + form.phone,
+  '*📧 Email Address:* ' + form.email,
+  '*🎓 Grade Applying For:* ' + form.grade,
+];
+
+if (form.message) {
+  lines.push('*💬 Message:* ' + form.message);
+}
 
       if (form.message) {
         lines.push('Message: ' + form.message);
