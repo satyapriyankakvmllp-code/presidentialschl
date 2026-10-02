@@ -2,6 +2,7 @@ import { BookOpen, FlaskConical, Calculator, Globe2, Palette, Cpu, ArrowRight } 
 import { Reveal } from '@/components/Reveal';
 import { images } from '@/config/images';
 import { scrollToSection } from '@/components/scrollToSection';
+import { SectionBackdrop } from '@/components/SectionBackdrop';
 
 const programs = [
   { icon: BookOpen, name: 'Primary School', grades: 'Classes I–V', desc: 'Play-based, activity-driven learning that builds strong literacy, numeracy and social skills.', color: 'from-primary-400 to-primary-600' },
@@ -21,8 +22,9 @@ const subjects = [
 
 export function Academics() {
   return (
-    <section id="academics" className="py-10 lg:py-12 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="academics" className="py-10 lg:py-12 relative overflow-hidden">
+      <SectionBackdrop image={images.scienceLab} side="left" tone="white" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center max-w-2xl mx-auto mb-6">
           <span className="inline-block text-accent-600 font-semibold text-sm tracking-wider uppercase mb-3">Academics</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-900 mb-4">A Curriculum That Grows With Your Child</h2>
@@ -49,7 +51,7 @@ export function Academics() {
         </div>
 
         {/* Feature banner with image */}
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center bg-primary-50/50 rounded-3xl p-5 sm:p-8 lg:p-10">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center bg-white/60 rounded-3xl p-5 sm:p-8 lg:p-10">
           <Reveal direction="left">
             <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] max-w-md mx-auto">
               <img src={images.scienceLab} alt="Science laboratory" className="w-full h-full object-cover" loading="lazy" />

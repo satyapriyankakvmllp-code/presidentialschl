@@ -1,6 +1,7 @@
 import { Quote } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { images } from '@/config/images';
+import { SectionBackdrop } from '@/components/SectionBackdrop';
 
 const leaders = [
   { name: 'Dr. Anjali Mehta', role: 'Principal', img: images.principal, bio: '30 years in education. PhD in Educational Leadership. Believes every child has a spark worth igniting.' },
@@ -10,8 +11,9 @@ const leaders = [
 
 export function Leadership() {
   return (
-    <section className="py-10 lg:py-12 bg-gradient-to-b from-primary-50/40 to-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-10 lg:py-12 relative overflow-hidden">
+      <SectionBackdrop side="left" tone="tint" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center max-w-2xl mx-auto mb-6">
           <span className="inline-block text-accent-600 font-semibold text-sm tracking-wider uppercase mb-3">Leadership</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-900 mb-4">Guided by Experience & Heart</h2>

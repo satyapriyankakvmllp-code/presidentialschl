@@ -2,6 +2,7 @@ import { CheckCircle2, Target, Heart, Lightbulb, Sparkles } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { branding } from '../../public/branding/branding';
 import { images } from '@/config/images';
+import { SectionBackdrop } from '@/components/SectionBackdrop';
 
 const values = [
   { icon: Target, title: 'Our Mission', text: 'To provide a holistic education that empowers every student to think critically, act responsibly and lead with integrity.' },
@@ -20,8 +21,9 @@ const highlights = [
 
 export function About() {
   return (
-    <section id="about" className="py-10 lg:py-12 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-10 lg:py-12 relative overflow-hidden">
+      <SectionBackdrop image={images.library} side="right" tone="white" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <Reveal className="text-center max-w-2xl mx-auto mb-6">
           <span className="inline-flex items-center gap-2 text-accent-600 font-semibold text-sm tracking-wider uppercase mb-3">
@@ -69,7 +71,7 @@ export function About() {
         <div className="grid md:grid-cols-3 gap-5 mt-10 lg:mt-12">
           {values.map((val, i) => (
             <Reveal key={val.title} direction="up" delay={i * 120}>
-              <div className="group h-full bg-primary-50/50 hover:bg-white border border-primary-100 hover:border-accent-200 hover:shadow-xl rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1">
+              <div className="group h-full bg-white/70 hover:bg-white border border-primary-100 hover:border-accent-200 hover:shadow-xl rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center group-hover:from-accent-400 group-hover:to-accent-600 transition-all duration-300">
                     <val.icon size={24} className="text-white" />

@@ -1,6 +1,7 @@
 import { FlaskConical, BookOpen, Bus, HeartPulse, Utensils, Music, Wifi, ShieldCheck } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { images } from '@/config/images';
+import { SectionBackdrop } from '@/components/SectionBackdrop';
 
 const facilities = [
   { icon: FlaskConical, title: 'Science & Robotics Labs', desc: 'Fully-equipped physics, chemistry, biology and robotics labs for hands-on discovery.', img: images.scienceLab },
@@ -18,8 +19,9 @@ const extra = [
 
 export function Facilities() {
   return (
-    <section id="facilities" className="py-10 lg:py-12 bg-gradient-to-b from-white to-primary-50/40 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="facilities" className="py-10 lg:py-12 relative overflow-hidden">
+      <SectionBackdrop image={images.campus} side="right" tone="tint" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center max-w-2xl mx-auto mb-6">
           <span className="inline-block text-accent-600 font-semibold text-sm tracking-wider uppercase mb-3">Campus & Facilities</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-900 mb-4">Built for Safe, Joyful Learning</h2>

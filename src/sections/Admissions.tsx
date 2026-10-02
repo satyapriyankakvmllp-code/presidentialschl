@@ -2,6 +2,8 @@ import { FileText, ClipboardCheck, UserCheck, Mail, ArrowRight, CheckCircle2, Me
 import { Reveal } from '@/components/Reveal';
 import { branding } from '../../public/branding/branding';
 import { scrollToSection } from '@/components/scrollToSection';
+import { SectionBackdrop } from '@/components/SectionBackdrop';
+import { images } from '@/config/images';
 
 const steps = [
   { icon: FileText, title: 'Submit Enquiry', desc: 'Fill out the online enquiry form or visit our admissions office.' },
@@ -20,8 +22,9 @@ const requirements = [
 
 export function Admissions() {
   return (
-    <section id="admissions" className="py-10 lg:py-12 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="admissions" className="py-10 lg:py-12 relative overflow-hidden">
+      <SectionBackdrop image={images.athletics} side="right" tone="white" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center max-w-2xl mx-auto mb-6">
           <span className="inline-block text-accent-600 font-semibold text-sm tracking-wider uppercase mb-3">Admissions Open {branding.admission.year}</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-900 mb-4">Begin Your Child's Journey With Us</h2>

@@ -1,5 +1,7 @@
 import { Star, Quote } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
+import { SectionBackdrop } from '@/components/SectionBackdrop';
+import { images } from '@/config/images';
 
 const testimonials = [
   { name: 'Priya & Arjun Verma', role: 'Parents of Class VII student', rating: 5, text: 'The transformation in our son has been remarkable. The teachers truly know each child and the communication from school is exceptional.' },
@@ -10,11 +12,12 @@ const testimonials = [
 export function Testimonials() {
   return (
     <section className="py-10 lg:py-12 bg-primary-900 relative overflow-hidden">
+      <SectionBackdrop image={images.classroom} side="left" tone="navy" />
       {/* Decorative shapes */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary-700/30 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent-500/10 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center max-w-2xl mx-auto mb-8">
           <span className="inline-block text-accent-400 font-semibold text-sm tracking-wider uppercase mb-3">Parent Voices</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Loved by Families</h2>

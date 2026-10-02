@@ -26,11 +26,11 @@ function StatCard({ value, suffix, label, inView, index }: { value: string; suff
   const count = useCountUp(num, inView);
   return (
     <Reveal direction="scale" delay={index * 100}>
-      <div className="text-center py-8 sm:py-10 px-4">
-        <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-serif">
+      <div className="text-center py-3.5 sm:py-5 px-2 sm:px-4">
+        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white font-serif leading-none">
           {count}<span className="text-accent-400">{suffix}</span>
         </div>
-        <div className="text-xs sm:text-sm text-primary-200 mt-2 font-medium uppercase tracking-wide">{label}</div>
+        <div className="text-[10px] sm:text-xs text-primary-200 mt-1.5 font-medium uppercase tracking-wide break-words">{label}</div>
       </div>
     </Reveal>
   );
@@ -55,8 +55,8 @@ export function Stats() {
 
   return (
     <section ref={sectionRef} className="relative -mt-2 z-10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-primary-800 to-primary-600 rounded-3xl shadow-2xl shadow-primary-900/20 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-primary-800 to-primary-600 rounded-2xl sm:rounded-3xl shadow-xl shadow-primary-900/20 overflow-hidden">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-primary-700/50">
             {branding.stats.map((stat, i) => (
               <StatCard key={stat.label} value={stat.value} suffix={stat.suffix} label={stat.label} inView={inView} index={i} />

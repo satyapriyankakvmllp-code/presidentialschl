@@ -56,16 +56,15 @@ export const branding: Branding = {
   metaDescription:
     'The Presidential School is a premier institution blending academic excellence with character building. Admissions open for 2027–2028.',
   logo: '/branding/assets/logo.png',
-  logoLight: '/branding/assets/logo-light.png',
-  favicon: '/branding/assets/favicon-512.png',
+  favicon: '/branding/assets/favicon.png',
   primaryColor: '#0c2249',
   accentColor: '#c9a227',
   contact: {
-    phone: '+91 83284 11176',
-    phoneHref: 'tel:+918328411176',
-    whatsapp: '918328411176',
+    phone: '+91 9000292749',
+    phoneHref: 'tel:+919000292749',
+    whatsapp: '919000292749',
     whatsappHref: '', // generated below from `whatsapp` — do not edit
-    email: 'admissions@example.com',
+    email: 'satyapriyankakvmllp@gmail.com',
     addressLine1: 'Radha, 50-121 27/1, Seethammadhara Road',
     addressLine2: 'Balayya Sastri Layout, Visakhapatnam',
     mapEmbedQuery: 'Seethammadhara Road, Balayya Sastri Layout, Visakhapatnam',
@@ -75,7 +74,7 @@ export const branding: Branding = {
   },
   enquiryMessage: 'Hello, I would like to enquire about admissions and the school.',
   admission: { year: '2027–2028', sectionId: 'admissions' },
-  developer: { name: 'Omatrix AI Solutions', url: 'https://omaitrix.com/' },
+  developer: { name: 'OmAiTrix  Solutions', url: 'https://omaitrix.com/' },
   // Replace with the school's real profile links
   social: {
     facebook: 'https://facebook.com',

@@ -2,6 +2,7 @@ import { Calendar, MapPin, ArrowRight } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { images } from '@/config/images';
 import { scrollToSection } from '@/components/scrollToSection';
+import { SectionBackdrop } from '@/components/SectionBackdrop';
 
 const events = [
   { day: '12', month: 'Oct', title: 'Annual Sports Day', time: '9:00 AM', venue: 'Main Ground', img: images.sports, tag: 'Sports' },
@@ -12,8 +13,9 @@ const events = [
 
 export function Events() {
   return (
-    <section id="events" className="py-10 lg:py-12 bg-gradient-to-b from-primary-50/40 to-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="events" className="py-10 lg:py-12 relative overflow-hidden">
+      <SectionBackdrop image={images.aboutMain} side="right" tone="tint" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center max-w-2xl mx-auto mb-6">
           <span className="inline-block text-accent-600 font-semibold text-sm tracking-wider uppercase mb-3">What's Happening</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-900 mb-4">Upcoming Events</h2>

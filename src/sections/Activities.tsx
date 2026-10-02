@@ -1,6 +1,7 @@
 import { Trophy, Palette, Music, Drama, Camera, Medal, Bike, Dumbbell } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { images } from '@/config/images';
+import { SectionBackdrop } from '@/components/SectionBackdrop';
 
 const activities = [
   { icon: Palette, title: 'Art & Craft', desc: 'Painting, pottery, sculpture and craft workshops that spark visual creativity.' },
@@ -18,8 +19,9 @@ const sports = [
 
 export function Activities() {
   return (
-    <section id="activities" className="py-10 lg:py-12 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="activities" className="py-10 lg:py-12 relative overflow-hidden">
+      <SectionBackdrop image={images.sports} side="left" tone="white" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center max-w-2xl mx-auto mb-6">
           <span className="inline-block text-accent-600 font-semibold text-sm tracking-wider uppercase mb-3">Beyond the Classroom</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-900 mb-4">Activities, Sports & Life Skills</h2>
@@ -38,7 +40,7 @@ export function Activities() {
             <div className="grid sm:grid-cols-2 gap-3 mb-4">
               {activities.map((a, i) => (
                 <Reveal key={a.title} direction="up" delay={i * 80}>
-                  <div className="group bg-primary-50/50 hover:bg-white border border-primary-100 hover:shadow-lg rounded-xl p-4 transition-all duration-300 hover:-translate-y-1">
+                  <div className="group bg-white/70 hover:bg-white border border-primary-100 hover:shadow-lg rounded-xl p-4 transition-all duration-300 hover:-translate-y-1">
                     <div className="w-11 h-11 rounded-xl bg-primary-100 group-hover:bg-accent-500 flex items-center justify-center mb-3 transition-colors">
                       <a.icon size={22} className="text-primary-700 group-hover:text-white transition-colors" />
                     </div>
@@ -71,7 +73,7 @@ export function Activities() {
             <Reveal direction="up" delay={150}>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {sports.map((s) => (
-                  <div key={s.label} className="flex flex-col items-center gap-2 bg-primary-50/50 rounded-xl py-4 hover:bg-primary-100 transition-colors">
+                  <div key={s.label} className="flex flex-col items-center gap-2 bg-white/60 rounded-xl py-4 hover:bg-primary-100 transition-colors">
                     <s.icon size={26} className="text-accent-500" />
                     <span className="text-xs font-semibold text-primary-800">{s.label}</span>
                   </div>

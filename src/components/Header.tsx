@@ -3,6 +3,7 @@ import { Menu, X, GraduationCap, Phone, MessageCircle } from 'lucide-react';
 import { branding } from '../../public/branding/branding';
 import { SocialIcons } from './SocialIcons';
 import { scrollToSection } from './scrollToSection';
+import { AnnouncementBar } from './AnnouncementBar';
 
 const navLinks = [
   { label: 'Home', id: 'home' },
@@ -58,17 +59,15 @@ export function Header() {
 
   return (
     <>
+      <AnnouncementBar />
       {/* Top info bar — desktop only */}
       <div className={`hidden lg:block transition-all duration-300 ${scrolled ? 'h-0 opacity-0 overflow-hidden' : 'opacity-100'}`}>
         <div className="bg-primary-900 text-white text-sm">
           <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
-            <div className="flex items-center gap-6">
-              <a href={`mailto:${branding.contact.email}`} className="flex items-center gap-2 hover:text-accent-300 transition-colors">
-                <span className="text-accent-400">✉</span> {branding.contact.email}
-              </a>
-              <a href={branding.contact.phoneHref} className="flex items-center gap-2 hover:text-accent-300 transition-colors">
-                <Phone size={14} className="text-accent-400" /> {branding.contact.phone}
-              </a>
+            <div className="flex items-center gap-6 text-primary-100">
+              <span><span className="text-accent-400">•</span> UKG Classes</span>
+              <span><span className="text-accent-400">•</span> Student Achievements</span>
+              <span><span className="text-accent-400">•</span> Annual Sports Day</span>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-primary-200">Follow Us:</span>
@@ -80,25 +79,25 @@ export function Header() {
 
       {/* Main nav */}
       <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'glass shadow-lg shadow-primary-900/5' : 'bg-white'}`}>
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
+        <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-14 sm:h-16' : 'h-16 sm:h-20'}`}>
             {/* Logo */}
-            <button onClick={() => handleNav('home')} className="flex items-center gap-3 group shrink-0">
-              <img src={branding.logo} alt={branding.schoolName} className="w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-md ring-2 ring-accent-400/60 transition-transform group-hover:scale-105" />
-              <div className="text-left">
-                <span className="block font-serif font-bold text-base sm:text-xl text-primary-900 leading-tight">{branding.schoolName}</span>
-                <span className="block text-[9px] sm:text-[11px] text-accent-700 font-semibold tracking-[0.14em] uppercase">{branding.tagline}</span>
+            <button onClick={() => handleNav('home')} className="flex items-center gap-2 sm:gap-3 group min-w-0">
+              <img src={branding.logo} alt={branding.schoolName} className="w-9 h-9 sm:w-12 sm:h-12 xl:w-14 xl:h-14 shrink-0 rounded-full shadow-md ring-2 ring-accent-400/60 transition-transform group-hover:scale-105" />
+              <div className="text-left min-w-0 whitespace-nowrap">
+                <span className="block font-serif font-bold text-[13px] min-[400px]:text-sm sm:text-lg xl:text-xl text-primary-900 leading-tight">{branding.schoolName}</span>
+                <span className="hidden min-[480px]:block text-[9px] sm:text-[10px] xl:text-[11px] text-accent-700 font-semibold tracking-[0.12em] uppercase truncate">{branding.tagline}</span>
               </div>
             </button>
 
             {/* Desktop nav */}
-            <ul className="hidden lg:flex items-center gap-1">
+            <ul className="hidden xl:flex items-center gap-0.5 2xl:gap-1 ml-auto mr-3">
               {navLinks.map((link) => {
                 const active = activeSection === link.id;
                 return (
                   <li key={link.id}>
                     <button onClick={() => handleNav(link.id)}
-                      className={`px-4 py-2 text-sm font-medium transition-colors relative group ${
+                      className={`px-3 2xl:px-4 py-2 text-sm font-medium transition-colors relative group ${
                         active ? 'text-accent-600' : 'text-primary-800 hover:text-accent-600'
                       }`}>
                       {link.label}
@@ -111,18 +110,16 @@ export function Header() {
               })}
             </ul>
 
-            {/* CTA + mobile toggle */}
-            <div className="flex items-center gap-3">
-              <button onClick={() => handleNav(branding.admission.sectionId)}
-                className="hidden sm:inline-flex whitespace-nowrap items-center gap-2 bg-accent-500 hover:bg-accent-600 text-primary-950 font-semibold text-sm px-5 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-accent-500/30 hover:-translate-y-0.5">
-                <GraduationCap size={16} /> Admissions
+            {/* CTA + mobile toggle — always visible, scales with the screen */}
+            <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+              <button onClick={() => handleNav(branding.admission.sectionId)} aria-label="Admissions"
+                className="inline-flex whitespace-nowrap items-center gap-1 sm:gap-2 bg-accent-500 hover:bg-accent-600 text-primary-950 font-semibold text-[11px] sm:text-sm px-2.5 sm:px-4 2xl:px-5 py-1.5 sm:py-2.5 max-[359px]:p-2 rounded-full transition-all hover:shadow-lg hover:shadow-accent-500/30">
+                <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="max-[359px]:hidden sm:hidden">Apply</span>
+                <span className="hidden sm:inline">Admissions</span>
               </button>
-              <a href={branding.contact.whatsappHref} target="_blank" rel="noopener noreferrer"
-                className="hidden md:inline-flex whitespace-nowrap items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-[#25D366]/30 hover:-translate-y-0.5">
-                <MessageCircle size={16} /> Enquire Now
-              </a>
               <button onClick={() => setMenuOpen(true)}
-                className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-primary-800 hover:bg-primary-50 transition-colors"
+                className="xl:hidden w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg text-primary-800 hover:bg-primary-50 transition-colors"
                 aria-label="Open menu">
                 <Menu size={24} />
               </button>
@@ -132,14 +129,14 @@ export function Header() {
       </header>
 
       {/* Mobile menu overlay */}
-      <div className={`fixed inset-0 z-[60] lg:hidden transition-all duration-300 ${menuOpen ? 'visible' : 'invisible'}`}>
+      <div className={`fixed inset-0 z-[60] xl:hidden transition-all duration-300 ${menuOpen ? 'visible' : 'invisible'}`}>
         <div className={`absolute inset-0 bg-primary-950/60 backdrop-blur-sm transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0'}`}
              onClick={() => setMenuOpen(false)} />
         <div className={`absolute right-0 top-0 h-full w-[80%] max-w-sm bg-white shadow-2xl transition-transform duration-300 flex flex-col ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
           <div className="flex items-center justify-between px-5 h-20 border-b border-primary-100 shrink-0">
             <div className="flex items-center gap-2.5">
               <img src={branding.logo} alt={branding.schoolName} className="w-11 h-11 rounded-full ring-2 ring-accent-400/60" />
-              <span className="font-serif font-bold text-base text-primary-900 leading-tight">{branding.schoolName}</span>
+              <span className="font-serif font-bold text-base text-primary-900 leading-tight whitespace-nowrap">{branding.schoolName}</span>
             </div>
             <button onClick={() => setMenuOpen(false)} className="w-10 h-10 flex items-center justify-center rounded-lg text-primary-800 hover:bg-primary-50" aria-label="Close menu">
               <X size={24} />

@@ -23,7 +23,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-primary-900 antialiased">
+    <div className="min-h-screen bg-[#eef3fb] text-primary-900 antialiased">
       {loading && <Loader />}
       <Header />
       <main>
